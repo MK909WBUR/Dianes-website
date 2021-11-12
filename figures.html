@@ -1,0 +1,190 @@
+<head>
+  <meta name="theme-color" content="rgba(43, 42, 42, 1)" />
+  <meta charset="UTF-8" />
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="https://i.ibb.co/N9vHtRd/Untitled-drawing.png"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Figures | Diane Cover's Artwork</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <script src="includeHTML.js"></script>
+</head>
+<body>
+  <div class="topnav" id="myTopnav">
+    <a href="index.html" id="logo">
+      <img
+        id="logo1"
+        src="images/diane's-logo-light.svg"
+        alt="DC"
+        style="float: left; width: 46px; height: 46px"
+      />
+    </a>
+    <a href="index.html">Home</a>
+    <a href="stilllife.html">Still Lifes</a>
+    <a href="landscape.html">Landscapes</a>
+    <a href="figures.html" id="active" class="active">Figures</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="contact.html">Contact Me</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  <br />
+  <br />
+  <div class="container">
+    <h1>Figures</h1>
+    <div>
+      <br />
+      <br />
+      <div class="row">
+        <div class="column">
+          <img
+            class="myImages skeleton loading"
+            src="/figures/1F.jpg"
+            onload="load(0)"
+            alt=""
+          />
+          <img
+            class="myImages skeleton loading"
+            src="figures/2F.jpg"
+            onload="load(1)"
+            alt=""
+          />
+          <img
+            class="myImages skeleton loading"
+            src="figures/3F.jpg"
+            onload="load(2)"
+            alt=""
+          />
+        </div>
+        <div class="column">
+          <img
+            class="myImages skeleton loading"
+            src="figures/12F.jpg"
+            onload="load(3)"
+            alt=""
+          />
+          <img
+            class="myImages skeleton loading"
+            src="figures/11F.jpg"
+            onload="load(4)"
+            alt=""
+          />
+          <img
+            class="myImages skeleton loading"
+            src="figures/10F.jpg"
+            onload="load(5)"
+            alt=""
+          />
+        </div>
+        <div class="column">
+          <img
+            class="myImages skeleton loading"
+            src="figures/6F.jpg"
+            onload="load(6)"
+            alt=""
+          />
+          <img
+            class="myImages skeleton loading"
+            src="figures/7F.jpg"
+            onload="load(7)"
+            alt=""
+          />
+          <img
+            class="myImages skeleton loading"
+            src="figures/8F.jpg"
+            onload="load(8)"
+            alt=""
+          />
+        </div>
+        <div class="column">
+          <img
+            class="myImages skeleton loading"
+            src="figures/4F.jpg"
+            onload="load(9)"
+            alt=""
+          />
+          <img
+            class="myImages skeleton loading"
+            src="figures/5F.jpg"
+            onload="load(10)"
+            alt=""
+          />
+          <img
+            class="myImages skeleton loading"
+            src="figures/9F.jpg"
+            onload="load(11)"
+            alt=""
+          />
+        </div>
+      </div>
+      <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="img01" />
+        <div id="caption"></div>
+      </div>
+      <br />
+      <br />
+      <div data-src="footer.html"></div>
+      <body />
+      <script>
+        function myFunction() {
+          var x = document.getElementById("myTopnav");
+          if (x.className === "topnav") {
+            x.className += " responsive";
+          } else {
+            x.className = "topnav";
+          }
+          var myTopnav = document.getElementById("myTopnav").className;
+          var active = document.getElementById("active");
+          if (myTopnav == "topnav responsive") {
+            document.getElementById("logo").style.display = "none";
+            active.className = "none";
+          } else {
+            document.getElementById("logo").style.display = "initial";
+            active.className = "active";
+          }
+        }
+        // create references to the modal...
+        var modal = document.getElementById("myModal");
+        // to all images -- note I'm using a class!
+        var images = document.getElementsByClassName("myImages");
+        // the image in the modal
+        var modalImg = document.getElementById("img01");
+        // and the caption in the modal
+        var captionText = document.getElementById("caption");
+
+        // Go through all of the images with our custom class
+        for (var i = 0; i < images.length; i++) {
+          var img = images[i];
+          // and attach our click listener for this image.
+          img.onclick = function (evt) {
+            console.log(evt);
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            captionText.innerHTML = this.alt;
+          };
+        }
+
+        var span = document.getElementsByClassName("close")[0];
+
+        span.onclick = function () {
+          modal.style.display = "none";
+        };
+
+        function load(num) {
+          var image = document.getElementsByClassName("myImages")[num];
+          var name = document.getElementsByClassName("name")[num];
+          console.log(image.alt + " " + image.src);
+          image.classList.remove("loading");
+        }
+      </script>
+    </div>
+  </div>
+</body>

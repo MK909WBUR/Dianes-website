@@ -1,0 +1,31 @@
+<html>
+<head>
+<link rel="stylesheet" href="css.css">
+</head>
+<body>
+
+<form action="welcome.php" method="post">
+<ul class="form-style-1">
+    <h2>Contact Me</h2>
+    <br>
+    <li><label>Full Name <span class="required">*</span></label>
+    <input type="text" name="fname" class="field-divided" placeholder="First" /> 
+    <input type="text" name="lname" class="field-divided" placeholder="Last" />
+    </li>
+    <li>
+        <label>Email <span class="required">*</span></label>
+        <input type="email" name="email" class="field-long" placeholder="example@example.com"/>
+    </li>
+    <li>
+        <label>Your Message <span class="required">*</span></label>
+        <textarea name="message" id="field5" class="field-long field-textarea" rows="5" cols="40" placeholder="Write here..."></textarea>
+    </li>
+    <br>
+    <li>
+       <input type="submit" name='submit' value="Submit">
+    </li>
+</ul>
+</form>
+
+</body>
+</html>

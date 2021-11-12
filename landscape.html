@@ -1,0 +1,204 @@
+<head>
+    <meta name="theme-color" content="rgba(43, 42, 42, 1)">
+    <meta charSet="UTF-8" />
+    <link rel="shortcut icon" type="image/png" href="https://i.ibb.co/N9vHtRd/Untitled-drawing.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Landscapes | Diane Cover's Artwork</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="includeHTML.js"></script>
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="index.html" id="logo">
+            <img id="logo1" src="images/diane's-logo-light.svg" alt="DC" style="float:left;width:46px;height:46px;" />
+        </a>
+        <a href="index.html">Home</a>
+        <a href="stilllife.html">Still Lifes</a>
+        <a href="landscape.html" id="active" class="active">Landscapes</a>
+        <a href="figures.html">Figures</a>
+        <a href="aboutme.html">About Me</a>
+        <a href="contact.html">Contact Me</a>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+    <!--<div class="alert">
+      <span class="closebtn2" onclick="this.parentElement.style.display='none'; alert();">&times;</span> The names for the paintings are coming soon!
+      </div>-->
+    <br />
+    <br />
+    <div class="container">
+        <h1>Landscapes</h1>
+        <h3>Paintings range in size from 8x10 to 9x11</h3>
+        <br />
+
+        <!--
+      <div class="callout">
+          <span class="closebtn" onclick="this.parentElement.style.display='none'; alert();">&times;</span>
+          <div class="callout-container">
+              <p>The names for the paintings are coming soon!</p>
+          </div>
+      </div>>-->
+
+        <div class="grid-box">
+            <div class="grid"></div>
+        </div>
+        <template id="card-template">
+  <div class="holder">
+    <img
+      class="myImages skeleton"
+      src="stilllife/16S.jpg"
+      alt=""
+      style="height:auto; width:100%;"
+    />
+    <br />
+    <h3 class="name"></h3>
+  </div>
+</template>
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img01" />
+            <div class="name" id="caption"></div>
+        </div>
+        <br />
+        <br />
+        <div data-src="footer.html"></div>
+    </body>
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myTopnav");
+                if (x.className === "topnav") {
+                    x.className += " responsive";
+                } else {
+                    x.className = "topnav";
+                }
+                var myTopnav = document.getElementById("myTopnav").className;
+                var active = document.getElementById("active");
+                if (myTopnav == "topnav responsive") {
+                    document.getElementById("logo").style.display = "none";
+                    active.className = "none";
+                } else {
+                    document.getElementById("logo").style.display = "initial";
+                    active.className = "active";
+                }
+            }
+            // create references to the modal...
+            var modal = document.getElementById("myModal");
+            // to all images -- note I'm using a class!
+            var images = document.getElementsByClassName("myImages");
+            // the image in the modal
+            var modalImg = document.getElementById("img01");
+            // and the caption in the modal
+            var captionText = document.getElementById("caption");
+
+            // Go through all of the images with our custom class
+            for (var i = 0; i < images.length; i++) {
+                var img = images[i];
+                // and attach our click listener for this image.
+                img.onclick = function(evt) {
+                    console.log(evt);
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                };
+            }
+
+            var span = document.getElementsByClassName("close")[0];
+
+            span.onclick = function() {
+                modal.style.display = "none";
+            };
+            // https://www.w3schools.com/js/js_arrays.asp
+            const grid = document.querySelector(".grid");
+            const cardTemplate = document.getElementById("card-template");
+            for (let i = 0; i < 25; i++) {
+                grid.append(cardTemplate.content.cloneNode(true));
+                var img = images[i];
+                // and attach our click listener for this image.
+                img.onclick = function(evt) {
+                    console.log(evt);
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                };
+            }
+            const numbers = [
+                "15L",
+                "1L",
+                "3L",
+                "4L",
+                "5L",
+                "6L",
+                "7L",
+                "23L",
+                "8L",
+                "9L",
+                "10L",
+                "11L",
+                "22L",
+                "24L",
+                "13L",
+                "16L",
+                "17L",
+                "18L",
+                "35L",
+                "21L",
+                "33L",
+                "32L",
+                "37L",
+                "30L",
+                "31L"
+            ];
+            const names = [
+                "Daisy Blue",
+                "Abstract Flowers",
+                "Blood Red Afternoon",
+                "White Roses",
+                "Yellow Flowers in a Bowl",
+                "Glowing Flowers",
+                "Red Flowers on a Slanted Table",
+                "Kettle Daisies",
+                "Glass Life",
+                "Autumn Bouquet",
+                "Honey Vase",
+                "Sliver of Nature",
+                "Wine and Roses",
+                "Spring Tea",
+                "A Hint of Color",
+                "Orange Flowers in a Vase",
+                "The Glass Collection",
+                "Burst of Red",
+                "Potted Sunshine",
+                "Essence of Spring",
+                "Haze of White"
+            ];
+
+            for (let i = 0; i < numbers.length; i++) {
+                var b = document.getElementsByClassName("myImages")[i];
+                var c = "landscape/";
+                var d = ".jpg";
+                b.src = c + numbers[i] + d;
+                console.log(b);
+            }
+
+            for (let i = 0; i < 21; i++) {
+                var b = document.getElementsByClassName("name")[i];
+                var c = document.getElementsByClassName("myImages")[i];
+                //b.innerHTML = names[i];
+                //c.alt = names[i];
+            }
+            var alertOn = true
+
+            function alert() {
+                var callout = document.getElementsByClassName("callout");
+                var alert = document.getElementsByClassName("alert");
+                alert.classList.add('loading');
+                alert.classList.remove('alert');
+                callout.classList.add('loading');
+                callout.classList.remove('callout');
+            }
+        </script>
+    </div>
+</body>

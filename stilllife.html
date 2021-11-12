@@ -1,0 +1,175 @@
+<head>
+  <meta name="theme-color" content="rgba(43, 42, 42, 1)" />
+  <meta charset="UTF-8" />
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="https://i.ibb.co/N9vHtRd/Untitled-drawing.png"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Still Lifes | Diane Cover's Artwork</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <script src="stilllife.js"></script>
+  <script src="includeHTML.js"></script>
+</head>
+
+<body>
+  <div class="topnav" id="myTopnav">
+    <a href="index.html" id="logo">
+      <img
+        id="logo1"
+        src="images/diane's-logo-light.svg"
+        alt="DC"
+        style="float: left; width: 46px; height: 46px"
+      />
+    </a>
+    <a href="index.html">Home</a>
+    <a href="stilllife.html" id="active" class="active">Still Lifes</a>
+    <a href="landscape.html">Landscapes</a>
+    <a href="figures.html">Figures</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="contact.html">Contact Me</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  <br />
+  <br />
+
+  <div class="container">
+    <h1>Still Lifes</h1>
+    <h3>Paintings range in size from 8x10 to 9x11</h3>
+  </div>
+  <br />
+  <div class="grid-box">
+    <div class="grid"></div>
+  </div>
+  <template id="card-template">
+    <div class="holder">
+      <img
+        class="myImages skeleton"
+        src="stilllife/16S.jpg"
+        alt=""
+        style="height: auto; width: 100%"
+      />
+      <br />
+      <h3 class="name">Test Of Name</h3>
+    </div>
+  </template>
+  <div id="myModal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="img01" />
+    <div id="caption"></div>
+  </div>
+  <br />
+  <br />
+  <div data-src="footer.html"></div>
+</body>
+<script>
+  // create references to the modal...
+  var modal = document.getElementById("myModal");
+  // to all images -- note I'm using a class!
+  var images = document.getElementsByClassName("myImages");
+  // the image in the modal
+  var modalImg = document.getElementById("img01");
+  // and the caption in the modal
+  var captionText = document.getElementById("caption");
+
+  // Go through all of the images with our custom class
+  for (var i = 0; i < images.length; i++) {
+    var img = images[i];
+    // and attach our click listener for this image.
+    img.onclick = function (evt) {
+      console.log(evt);
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    };
+  }
+
+  var span = document.getElementsByClassName("close")[0];
+
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+  // https://www.w3schools.com/js/js_arrays.asp
+  const grid = document.querySelector(".grid");
+  const cardTemplate = document.getElementById("card-template");
+  for (let i = 0; i < 21; i++) {
+    grid.append(cardTemplate.content.cloneNode(true));
+    var img = images[i];
+    // and attach our click listener for this image.
+    img.onclick = function (evt) {
+      console.log(evt);
+      modal.style.display = "block";
+      modalImg.src = this.src;
+      captionText.innerHTML = this.alt;
+    };
+  }
+  const numbers = [
+    "4S",
+    "16S",
+    "25S",
+    "23S",
+    "22S",
+    "20S",
+    "19S",
+    "18S",
+    "15S",
+    "5S",
+    "14S",
+    "10S",
+    "8S",
+    "9S",
+    "17S",
+    "26S",
+    "2S",
+    "27S",
+    "6S",
+    "1S",
+    "29S",
+  ];
+  const names = [
+    "Daisy Blue",
+    "Abstract Flowers",
+    "Blood Red Afternoon",
+    "White Roses",
+    "Yellow Flowers in a Bowl",
+    "Glowing Flowers",
+    "Red Flowers on a Slanted Table",
+    "Kettle Daisies",
+    "Glass Life",
+    "Autumn Bouquet",
+    "Honey Vase",
+    "Sliver of Nature",
+    "Wine and Roses",
+    "Spring Tea",
+    "A Hint of Color",
+    "Orange Flowers in a Vase",
+    "The Glass Collection",
+    "Busrt of Red",
+    "Potted Sunshine",
+    "Essence of Spring",
+    "Haze of White",
+  ];
+  for (let i = 0; i < 21; i++) {
+    var b = document.getElementsByClassName("myImages")[i];
+    var c = "stilllife/";
+    var d = ".jpg";
+    b.src = c + numbers[i] + d;
+    console.log(b);
+  }
+
+  for (let i = 0; i < 21; i++) {
+    var b = document.getElementsByClassName("name")[i];
+    var c = document.getElementsByClassName("myImages")[i];
+    b.innerHTML = names[i];
+    c.alt = names[i];
+    console.log(b);
+  }
+  console.log(numbers.length);
+</script>

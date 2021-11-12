@@ -1,0 +1,158 @@
+<head>
+  <meta name="theme-color" content="rgba(43, 42, 42, 1)">
+  <meta charset="UTF-8" />
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="https://i.ibb.co/N9vHtRd/Untitled-drawing.png"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link rel="stylesheet" href="error.css" />
+  <title>Diane Cover's Artwork</title>
+</head>
+
+<body>
+  <div class="topnav" id="myTopnav">
+    <a href="index.html" id="logo">
+      <img
+        id="logo1"
+        src="images/diane's-logo-light.svg"
+        alt="DC"
+        style="float: left; width: 56px; height: 50px"
+      />
+    </a>
+    <a href="index.html">Home</a>
+    <a href="stilllife.html">Still Lifes</a>
+    <a href="landscape.html">Landscapes</a>
+    <a href="figures.html">Figures</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="contact.html">Contact Me</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <header>
+    <h1>
+      Diane Cover's Artwork<br /><br />
+      <!--<span id="text"
+        >It looks like we can't find the page you were looking for!</span
+      > -->
+      <span id="text">This canvas is blank!</span>
+    </h1>
+    <h2>
+      <button id="home" onclick="document.location='index.html'">
+        Go back to the homepage
+      </button>
+    </h2>
+    <div class="imgbox">
+      <img
+        src="images/Diane's-logo.svg"
+        alt="DC"
+        style="max-width: 100%; max-height: 50vh; margin: auto"
+      />
+    </div>
+  </header>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <footer>
+    <b>
+      <p>
+        Artwork By Diane Cover<br />
+        <a class="footer" href="stilllife.html">
+          <strong> Still Lives</strong></a
+        >
+        |
+        <a class="footer" href="landscape.html">
+          <strong> Landscapes</strong></a
+        >
+        | <a class="footer" href="figures.html"> <strong> Figures</strong></a> |
+        <a class="footer" href="aboutme.html"> <strong> About Me </strong></a> |
+        <a class="footer" href="aboutme.html#contact">
+          <strong> Contact Me</strong></a
+        >
+      </p>
+      <p>
+        Website created by
+        <a class="footer" href="mailto:micah.klein04@gmail.com"> Micah Klein</a>
+      </p></b
+    >
+    <p>©2021</p>
+  </footer>
+</body>
+<script>
+  var slideIndex = 1;
+  showSlides(slideIndex);
+
+  // Next/previous controls
+  function plusSlides(n) {
+    showSlides((slideIndex += n));
+  }
+
+  // Thumbnail image controls
+  function currentSlide(n) {
+    showSlides((slideIndex = n));
+  }
+
+  function showSlides(n) {
+    var i;
+    var slides = document.getElementsByClassName("mySlides");
+    var dots = document.getElementsByClassName("dot");
+    if (n > slides.length) {
+      slideIndex = 1;
+    }
+    if (n < 1) {
+      slideIndex = slides.length;
+    }
+    for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+    }
+    for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+    }
+    slides[slideIndex - 1].style.display = "block";
+    dots[slideIndex - 1].className += " active";
+  }
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+    var myTopnav = document.getElementById("myTopnav").className;
+    var active = document.getElementById("active");
+    if (myTopnav == "topnav responsive") {
+      document.getElementById("logo").style.display = "none";
+      active.className = "none";
+    } else {
+      document.getElementById("logo").style.display = "initial";
+      active.className = "active";
+    }
+  }
+</script>

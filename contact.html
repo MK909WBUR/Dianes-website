@@ -1,0 +1,125 @@
+<head>
+  <meta name="theme-color" content="rgba(43, 42, 42, 1)" />
+  <meta charset="UTF-8" />
+  <link
+    rel="shortcut icon"
+    type="image/png"
+    href="https://i.ibb.co/N9vHtRd/Untitled-drawing.png"
+  />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Me | Diane Cover's Artwork</title>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link rel="stylesheet" href="contact.css" />
+  <script src="includeHTML.js"></script>
+</head>
+<body>
+  <div class="topnav" id="myTopnav">
+    <a href="index.html" id="logo">
+      <img
+        id="logo1"
+        src="images/diane's-logo-light.svg"
+        alt="DC"
+        style="float: left; width: 46px; height: 46px"
+      />
+    </a>
+    <a href="index.html">Home</a>
+    <a href="stilllife.html">Still Lifes</a>
+    <a href="landscape.html">Landcapes</a>
+    <a href="figures.html">Figures</a>
+    <a href="aboutme.html">About Me</a>
+    <a href="contact.html" id="active" class="active">Contact Me</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+      <i class="fa fa-bars"></i>
+    </a>
+  </div>
+  <br />
+  <br />
+  <div class="top">
+    <h1>
+      <center>Diane Cover's Artwork</center>
+    </h1>
+  </div>
+  <br />
+  <br />
+  <div id="form" class="iframecontainer" data-src="form.html"></div>
+  <div id="thankYou" class="iframecontainer" data-src="thank-you.html"></div>
+  <!-- <div class="iframecontainer">
+    <iframe
+      id="contactformiframe"
+      src="https://docs.google.com/forms/d/e/1FAIpQLSe3Z2PEyd9KGhbSI_nMIiAHXUWFHtWhJQfhEcEd7yiI6a2sDg/viewform?embedded=true"
+      width="100%"
+      height="1040px"
+      frameborder="0"
+      >Loading…</iframe
+    >
+  </div> -->
+  <br />
+  <br />
+  <div id="contact">
+    If the form does not work, you can email me at
+    <a href="mailto:coverwachs@gmail.com">coverwachs@gmail.com</a>
+  </div>
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <div data-src="footer.html"></div>
+</body>
+<script>
+  let thanks = getCookie("formSubmitted");
+  if (thanks == "thanks") {
+    var form = document.getElementById("form");
+    var thankYou = document.getElementById("thankYou");
+    form.style.display = "none";
+    thankYou.style.display = "block";
+  }
+
+  function remove() {
+    document.cookie = "formSubmitted=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
+    var form = document.getElementById("form");
+    var thankYou = document.getElementById("thankYou");
+    form.style.display = "block";
+    thankYou.style.display = "none";
+  }
+
+  function myFunction() {
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+      x.className += " responsive";
+    } else {
+      x.className = "topnav";
+    }
+    var myTopnav = document.getElementById("myTopnav").className;
+    var active = document.getElementById("active");
+    if (myTopnav == "topnav responsive") {
+      document.getElementById("logo").style.display = "none";
+      active.className = "none";
+    } else {
+      document.getElementById("logo").style.display = "initial";
+      active.className = "active";
+    }
+  }
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(";");
+    for (let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+</script>
